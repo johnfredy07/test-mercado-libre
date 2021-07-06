@@ -1,0 +1,15 @@
+@import '~antd/dist/antd.css';
+
+// Colors
+$primary-color: #FFE600;
+$disable-color: #AAAAAA;
+$white: #FFF;
+
+// Layout
+$layout-header-background: $primary-color;
+$layout-sider-background: $white;
+$layout-trigger-background: $primary-color;
+
+
+@import 'layout.scss';
+@import 'header.scss';

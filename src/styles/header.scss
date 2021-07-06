@@ -1,0 +1,32 @@
+@import '~antd/dist/antd.css';
+
+.custom-layout {
+
+  .custom-header {
+    padding: 0;
+    overflow: hidden;
+    background-color: $primary-color;
+
+    .custom-tooltip {
+      color : #fff;
+      margin: 8px;
+    }
+
+    .ant-row {
+      width: 100%;
+
+      .ant-col {
+
+        .custom-logo-container {
+          width           : 200px;
+          height          : 64px;
+
+          .custom-logo {
+            background-color: inherit;
+            padding         : 0 70px;
+          }
+        }
+      }
+    }
+  }
+}

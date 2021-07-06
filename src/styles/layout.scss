@@ -1,0 +1,23 @@
+@import '~antd/dist/antd.css';
+
+.custom-loading-row {
+  text-align: center;
+
+  .custom-loading-col{
+
+    .custom-loading-spin {
+      position: fixed;
+      top: 280px;
+    }
+  }
+}
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+
+.ant-layout-header {
+  background-color: $primary-color;
+}
