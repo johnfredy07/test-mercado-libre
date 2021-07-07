@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 const Routes = ({
-  routes, redirect
+  routes, redirect, handleScope, globalScope
 }) => (
   <Switch>
     {routes.map(({ component, exact, path }, index) => (
@@ -15,6 +15,8 @@ const Routes = ({
           component,
           {
             ...props,
+            handleScope,
+            globalScope
           },
           null
         )}
@@ -27,6 +29,8 @@ const Routes = ({
 Routes.propTypes = {
   redirect: PropTypes.bool,
   routes: PropTypes.array,
+  handleScope: PropTypes.func,
+  globalScope: PropTypes.object,
 };
 
 export default Routes;

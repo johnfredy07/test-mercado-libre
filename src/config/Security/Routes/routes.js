@@ -3,10 +3,16 @@ import asyncFiles from './asyncFiles';
 
 const routes = [
   create({
-    component: asyncFiles.search,
+    component: asyncFiles.items,
     layout: true,
-    url: '/search',
-    target: 'search',
+    url: '/items/:search?',
+    target: 'items',
+  }),
+  create({
+    component: asyncFiles.item,
+    layout: true,
+    url: '/item/:id?',
+    target: 'items',
   }),
 ];
 

@@ -7,11 +7,17 @@ import Layout from './Layout';
 import Routes from './Routes';
 import { routes } from '../../../config/Security/Routes';
 
-const LayoutContainer = ({ history }) => (
+const LayoutContainer = ({ history, handleScope, globalScope }) => (
   <Switch>
-    <Layout history={history}>
+    <Layout
+      history={history}
+      handleScope={handleScope}
+      globalScope={globalScope}
+    >
       <Routes
         routes={routes}
+        globalScope={globalScope}
+        handleScope={handleScope}
       />
     </Layout>
   </Switch>
@@ -19,6 +25,8 @@ const LayoutContainer = ({ history }) => (
 
 LayoutContainer.propTypes = {
   history: PropTypes.object,
+  handleScope: PropTypes.func,
+  globalScope: PropTypes.object,
 };
 
 export default withRouter(LayoutContainer);

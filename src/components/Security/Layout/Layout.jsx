@@ -4,15 +4,19 @@ import {
 } from 'antd';
 import * as PropTypes from 'prop-types';
 import Logo from './Logo';
+import Search from '../../Search/Search';
 
 const { Header, Content, Footer } = AntLayout;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, history, globalScope }) => (
   <AntLayout className="custom-layout">
     <Header className="custom-header">
       <Row>
         <Col span={4}>
           <Logo />
+        </Col>
+        <Col span={17}>
+          <Search history={history} globalScope={globalScope} />
         </Col>
       </Row>
     </Header>
@@ -30,6 +34,8 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.any,
+  history: PropTypes.object,
+  globalScope: PropTypes.object,
 };
 
 export default Layout;
