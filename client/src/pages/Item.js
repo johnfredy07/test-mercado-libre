@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Detail } from '../components/Search';
 
 const Item = () => (
   <div>
-    Items
+    <Detail item={{}} />
   </div>
 );
 

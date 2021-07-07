@@ -11,7 +11,7 @@ const Items = ({ history, match, handleScope }) => {
 
   return (
     <div>
-      <ProducItem />
+      <ProducItem item={{}} />
       <ProducItem />
     </div>
   );

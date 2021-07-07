@@ -6,30 +6,34 @@ import * as PropTypes from 'prop-types';
 import Logo from './Logo';
 import Search from '../../Search/Search';
 
-const { Header, Content, Footer } = AntLayout;
+const { Header, Footer } = AntLayout;
 
 const Layout = ({ children, history, globalScope }) => (
-  <AntLayout className="custom-layout">
-    <Header className="custom-header">
-      <Row>
-        <Col span={4}>
-          <Logo />
-        </Col>
-        <Col span={17}>
-          <Search history={history} globalScope={globalScope} />
-        </Col>
-      </Row>
-    </Header>
-    <Content style={{ padding: '0 50px' }}>
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
-      <div className="site-layout-content">{children}</div>
-    </Content>
+  <div>
+    <AntLayout className="custom-layout">
+      <Header className="custom-header">
+        <Row>
+          <Col span={3} className="icon-search">
+            <Logo />
+          </Col>
+          <Col span={19}>
+            <Search history={history} globalScope={globalScope} />
+          </Col>
+        </Row>
+      </Header>
+    </AntLayout>
+    <main className="ant-layout-content">
+      <div className="container">
+        <Breadcrumb className="breadcrumb">
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
+        </Breadcrumb>
+        <div>{children}</div>
+      </div>
+    </main>
     <Footer />
-  </AntLayout>
+  </div>
 );
 
 Layout.propTypes = {

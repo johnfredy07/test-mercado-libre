@@ -11,6 +11,15 @@
       color : #fff;
       margin: 8px;
     }
+    
+    .icon-search {
+      @media (min-width: 360px) {
+        margin-right: 6%;
+      }  
+      @media (min-width: 500px) {
+        margin-right: 0;
+      }       
+    }
 
     .ant-row {
       width: 100%;
@@ -37,6 +46,9 @@
         .custom-logo-container {
           width           : 200px;
           height          : 64px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
 
           .custom-logo {
             background-color: inherit;
