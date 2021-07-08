@@ -2,34 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Image from './Image';
+import { currency } from '../../utils/general';
+import shippingPicture from '../../assets/img/ic_shipping2x.png';
 
-const ProducItem = ({ history, item }) => {
+const ProducItem = ({ item }) => {
   const {
-    price, title, picture, thumbnail, address, id
+    price, title, picture, address, id, freeShipping
   } = item;
 
   return (
     <Link to={`/item/${id}`}>
       <div className="card">
         <Image
-          picture={picture || 'https://http2.mlstatic.com/D_NQ_NP_776753-MCO45336221420_032021-V.webp'}
+          picture={picture}
         />
         <div>
           <div>
             <h2>
-              <span>10.000</span>
+              <span>{currency(price?.currency)}</span>
+              {parseInt(price.amount).toLocaleString('de-DE')}
+              {price.decimals > 0 && <sup>{price.decimals}</sup>}
             </h2>
+            {freeShipping && (
+              <Image
+                picture={shippingPicture}
+              />
+            )}
           </div>
-          <h3>{title || 'title'}</h3>
+          <h3>{title}</h3>
         </div>
-        <small>{address?.state_name || 'address'}</small>
+        <small>{address?.state_name}</small>
       </div>
     </Link>
   );
 };
 
 ProducItem.propTypes = {
-  history: PropTypes.object,
   item: PropTypes.object,
 };
 
