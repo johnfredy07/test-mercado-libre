@@ -14,7 +14,11 @@ const Search = ({ history, globalScope }) => {
     form.setFieldsValue({ search: search?.value });
   }, [search]);
 
-  const onSearch = (value) => history.push(`/items/${value}`);
+  const onSearch = (value) => history.push({
+    pathname: '/items',
+    search: `?search=${value}`,
+    state: { detail: value }
+  });
   return (
     <div>
       <Form form={form}>

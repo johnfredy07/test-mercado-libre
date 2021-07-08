@@ -5,7 +5,7 @@ const routes = [
   create({
     component: asyncFiles.items,
     layout: true,
-    url: '/items/:search?',
+    url: '/items',
     target: 'items',
   }),
   create({
