@@ -1,16 +1,16 @@
 const axios = require("axios");
 
 const getCategories = async (filters, available_filters) => {
-    let itemCategories;
+    let categories;
 
     if (filters.length) {
-      itemCategories = filters[0].values[0].path_from_root.map(
+      categories = filters[0].values[0].path_from_root.map(
         (category) => category.name
       );
     } else {
       let firstCategory = available_filters[0]?.values;
 
-      firstCategory.sort(function (a, b) {
+      firstCategory.sort((a, b) => {
         if (a.results > b.results) {
           return -1;
         }
@@ -22,18 +22,17 @@ const getCategories = async (filters, available_filters) => {
 
       firstCategory = firstCategory[0].id;
 
-      itemCategories = await axios.get(
-        `https://api.mercadolibre.com/categories/${firstCategory}`
+      categories = await axios.get(
+        `${process.env.API_ML}/categories/${firstCategory}`
       );
 
-      itemCategories = itemCategories.data.path_from_root.map(
+      categories = categories.data.path_from_root.map(
         (category) => category.name
       );
-
-      itemCategories =
-        itemCategories.length > 5 ? itemCategories.slice(-5) : itemCategories;
+      //Maximo 5 categorias
+      categories = categories.length > 5 ? categories.slice(-5) : categories;
     }
-    return itemCategories;
+    return categories;
 };
 
 const itemsByQuery = async (query, limit = 4) => {
@@ -48,7 +47,6 @@ const itemsByQuery = async (query, limit = 4) => {
         title,
         price,
         currency_id,
-        thumbnail,
         thumbnail_id,
         condition,
         shipping: { free_shipping },
@@ -62,7 +60,6 @@ const itemsByQuery = async (query, limit = 4) => {
             amount: Math.floor(price).toString(),
             decimals: ((price % 1) * 100).toFixed(0),
           },
-          thumbnail,
           picture: `http://http2.mlstatic.com/D_${thumbnail_id}-L.jpg`,
           condition,
           freeShipping: free_shipping,

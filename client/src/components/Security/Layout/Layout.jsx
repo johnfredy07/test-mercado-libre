@@ -1,15 +1,16 @@
 import React from 'react';
 import {
-  Layout as AntLayout, Breadcrumb, Row, Col
+  Layout as AntLayout, Row, Col
 } from 'antd';
 import * as PropTypes from 'prop-types';
 import Logo from './Logo';
 import Search from '../../Search/Search';
+import { Breadcrumb } from '../../Shared';
 
 const { Header, Footer } = AntLayout;
 
 const Layout = ({ children, history, globalScope }) => {
-  console.log('globalScope', globalScope);
+  const { categories } = globalScope;
   return (
     <div>
       <AntLayout className="custom-layout">
@@ -26,11 +27,7 @@ const Layout = ({ children, history, globalScope }) => {
       </AntLayout>
       <main className="ant-layout-content">
         <div className="container">
-          <Breadcrumb className="breadcrumb">
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
+          <Breadcrumb categories={categories || []} />
           <div>{children}</div>
         </div>
       </main>

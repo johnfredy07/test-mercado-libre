@@ -21,8 +21,7 @@ const Items = ({ history, handleScope }) => {
       .get(`${process.env.REACT_APP_API}/api/items?q=${state?.detail}`)
       .then((res) => {
         setData(res?.data?.items);
-        console.log('data', res?.data);
-        handleScope((_scope) => ({ ..._scope, categories: res?.data?.categories }));
+        handleScope({ search: { value: state?.detail }, categories: res?.data?.categories });
         setLoading(false);
       })
       .catch((err) => {

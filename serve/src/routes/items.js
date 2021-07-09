@@ -1,5 +1,5 @@
 const express = require("express");
-const { itemByQuery } = require("../utils");
+const { itemByQuery, itemDetail } = require("../utils");
 
 const items = express.Router();
 
@@ -17,10 +17,14 @@ items.get("/", async function (req, res) {
 
 items.get("/:id", async function (req, res) {
   const id = req.params.id;
-  const data = { id: "wppppp", name: "rrr", parameter: id };
-
-  res.status(200);
-  res.send(data);
+  try {
+    const data = await itemDetail(id);
+    res.status(200);
+    res.send(data);    
+  } catch (error) {
+    res.status(500);
+    res.send(error);    
+  }
 });
 
 

@@ -1,5 +1,12 @@
 {
   "search": {
     "placeholder": "Nunca dejes de buscar"
+  },
+  "detail": {
+    "new": "Nuevo - ",
+    "used": "Usado - ",
+    "sold": "Vendidos",
+    "description": "Descripcion del producto",
+    "buy": "Comprar"
   }
 }

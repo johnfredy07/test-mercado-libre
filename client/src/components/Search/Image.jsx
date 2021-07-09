@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Image = ({ picture, thumbnail, alt = '' }) => (
+const Image = ({ picture, alt = '' }) => (
   <figure className="figure">
     <img
       src={picture}
@@ -13,7 +13,6 @@ const Image = ({ picture, thumbnail, alt = '' }) => (
 
 Image.propTypes = {
   picture: PropTypes.string,
-  thumbnail: PropTypes.string,
   alt: PropTypes.string,
 };
 

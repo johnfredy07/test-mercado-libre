@@ -1,41 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { Button } from 'antd';
 import Image from './Image';
+import { currency } from '../../utils/general';
 
 const Detail = ({ item }) => {
+  const { t } = useTranslation();
   const {
     picture, title, price, description
   } = item;
   return (
     <div className="product">
       <Image
-        picture={picture || 'https://http2.mlstatic.com/D_NQ_NP_776753-MCO45336221420_032021-V.webp'}
+        picture={picture}
       />
       <div className="detail">
         <small>
-          {item.condition === 'new' ? 'Nuevo - ' : 'Usado - '}
+          {item.condition === 'new' ? t('detail.new') : t('detail.used')}
           {item.sold_quantity}
           {' '}
-          Vendidos
+          {t('detail.sold')}
         </small>
-        <h1>{title || 'Title'}</h1>
-        {(price || true) && (
+        <h1>{title}</h1>
+        {(price) && (
         <h2>
-          <span>$</span>
+          <span>{currency(price?.currency)}</span>
           {
-            parseInt(8000).toLocaleString('de-DE')
+            parseInt(price?.amount).toLocaleString('de-DE')
           }
-          {(price?.decimals > 0 || true) && (
-          <sup>{price?.decimals || '00'}</sup>
+          {(price?.decimals > 0) && (
+          <sup>{price?.decimals}</sup>
           )}
         </h2>
         )}
-        <Button type="primary">Comprar</Button>
+        <Button type="primary" className="button">{t('detail.buy')}</Button>
       </div>
       <div className="description">
-        <h2>Descripcion del producto</h2>
-        <div>{description || 'description'}</div>
+        <h2>{t('detail.description')}</h2>
+        <div>{description}</div>
       </div>
     </div>
   );
