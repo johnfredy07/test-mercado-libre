@@ -10,6 +10,7 @@ const AppContainer = () => {
   const { i18n } = useTranslation();
   moment.updateLocale(i18n.language, localization);
 
+  // antdLocales: Manejo de multi idioma
   return <App language={antdLocales(i18n.language)} />;
 };
 

@@ -7,6 +7,7 @@ import Layout from './Layout';
 import Routes from './Routes';
 import { routes } from '../../../config/Security/Routes';
 
+// Configuracion de rutas y layout
 const LayoutContainer = ({ history, handleScope, globalScope }) => (
   <Switch>
     <Layout

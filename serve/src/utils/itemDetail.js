@@ -6,9 +6,11 @@ const getCategorie = async (id) => {
 };
 
 const itemDetail = async (itemId) => {
+  // se consume el api para obtener un producto especifico y la descripcion
   const item = await axios.get(`${process.env.API_ML}/items/${itemId}`);
   const description = await axios.get(`${process.env.API_ML}/items/${itemId}/description`);
 
+  // se destructura la data para armar la estructura solicitada
   const {
     id,
     title,
@@ -40,7 +42,7 @@ const itemDetail = async (itemId) => {
       sold_quantity,
       description: description.data.plain_text,
     },
-    categories: await getCategorie(category_id)
+    categories: await getCategorie(category_id) //se optinen las categorias
   };
   return data;
 };

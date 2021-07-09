@@ -3,6 +3,7 @@ const express = require("express");
 const items = require("./routes/items");
 const path = require("path");
 
+// manejo de rutas
 const routes = express.Router();
 
 routes.get("/", function (req, res) {

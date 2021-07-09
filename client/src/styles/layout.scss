@@ -12,6 +12,10 @@ body {
     .custom-loading-spin {
       position: fixed;
       top: 280px;
+      color: $primary-color;
+      .ant-spin-dot-item {
+        background-color: $primary-color;
+      }
     }
   }
 }

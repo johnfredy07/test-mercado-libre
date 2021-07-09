@@ -36,11 +36,13 @@ const getCategories = async (filters, available_filters) => {
 };
 
 const itemsByQuery = async (query, limit = 4) => {
+    // se consume el api por query con un limit de 4 por defecto
     const items = await axios.get(
       `${process.env.API_ML}/sites/MLA/search?q=${query}&limit=${limit}`
     );
     const { results, filters, available_filters } = items.data;
 
+    // se destructura la data para armar la estructura solicitada
     const products = results.map(
       ({
         id,
@@ -67,6 +69,7 @@ const itemsByQuery = async (query, limit = 4) => {
         };
       }
     );   
+    // se optionen las categorias
     const categories = await getCategories(filters, available_filters);
     const data = {
       author: {

@@ -1,8 +1,9 @@
 const express = require("express");
 const { itemByQuery, itemDetail } = require("../utils");
-
+ // servicios expuestos
 const items = express.Router();
 
+// filtra por query
 items.get("/", async function (req, res) {
   const { q } = req.query;
   try {
@@ -15,6 +16,7 @@ items.get("/", async function (req, res) {
   }
 });
 
+// filtra por id especifico
 items.get("/:id", async function (req, res) {
   const id = req.params.id;
   try {

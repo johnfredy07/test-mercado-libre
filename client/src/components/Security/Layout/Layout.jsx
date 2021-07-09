@@ -9,6 +9,7 @@ import { Breadcrumb } from '../../Shared';
 
 const { Header, Footer } = AntLayout;
 
+// layout del sitio
 const Layout = ({ children, history, globalScope }) => {
   const { categories } = globalScope;
   return (

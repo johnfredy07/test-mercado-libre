@@ -6,6 +6,7 @@ const routes = require("./routes");
 
 const app = express();
 
+//middleware
 app.use(
   cors({
     origin: process.env.FRONT_URL,

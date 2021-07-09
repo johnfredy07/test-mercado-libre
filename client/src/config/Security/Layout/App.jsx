@@ -8,6 +8,7 @@ import AppSuspense from '../../../components/Security/Layout/AppSuspense';
 const App = ({ language }) => {
   const [scope, setScope] = useState({ search: null });
 
+  // scope para manejo de busqueda y parametros
   const handleScope = useCallback(({ search, ...rest }) => {
     setScope((_scope) => ({ ..._scope, search, ...rest }));
   }, []);
