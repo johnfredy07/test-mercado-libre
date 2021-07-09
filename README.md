@@ -3,16 +3,16 @@
 ## Pasos para correr localmente
 
 1. API
-  * Ubicarse en la carpeta serve y ejecutar: yarn
+  * Ubicarse en la carpeta serve y ejecutar: ``yarn``
   * Crear archivo .env sobre la raiz de la carpeta serve
   * Copiar las variables que estan en el archivo .env.example
-  * Ejecutar yarn start  
+  * Ejecutar ``yarn start`` 
   * El api por defecto corre en el puerto 4000
 1. Cliente
-  * Ubicarse en la carpeta client y ejecutar: yarn
+  * Ubicarse en la carpeta client y ejecutar: ``yarn``
   * Crear archivo .env sobre la raiz de la carpeta client
   * Copiar las variables que estan en el archivo .env.example
-  * Ejecutar yarn start
+  * Ejecutar ``yarn start`` 
   * El cliente corre en el puerto 3000
 
 ## Notas:
